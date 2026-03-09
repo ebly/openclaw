@@ -1,0 +1,34 @@
+# Sensitive data
+credentials/
+logs/
+delivery-queue/
+devices/
+mcp/
+exec-approvals.json
+update-check.json
+
+# Session history
+agents/*/sessions/
+subagents/*/
+
+# Browser data
+browser/
+canvas/
+
+# Media files
+media/
+
+# Memory files (may contain personal notes)
+memory/
+
+# Temporary files
+*.log
+*.tmp
+
+# Sub-workspaces with their own git repos
+workspace-*/
+workspace
+workspace-coder
+workspace-designer
+workspace-support
+workspace-test

@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "weather-reporter-daily",
+      "name": "天气播报 - 每日武汉天气",
+      "enabled": true,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 8 * * *"
+      },
+      "timezone": "Asia/Shanghai",
+      "action": {
+        "type": "session",
+        "agentId": "main",
+        "task": "获取武汉当前天气和未来 3 天预报，整理成简洁的播报格式，通过 message 工具发送到 feishu 频道给老大（ou_b22256f49d4850b336b3244b7bdfd1ff）。播报内容包括：温度、天气状况、风力、湿度、生活建议。使用 emoji 让内容更生动。",
+        "timeout": 60
+      },
+      "metadata": {
+        "created": "2026-03-08",
+        "creator": "personal-assistant",
+        "description": "每天早上 8 点发送武汉天气播报"
+      },
+      "state": {
+        "nextRunAtMs": 1773100800000
+      },
+      "wakeMode": "now",
+      "sessionTarget": "main"
+    },
+    {
+      "id": "news-daily",
+      "name": "热点新闻播报 - 每日新闻摘要",
+      "enabled": true,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 8 * * *"
+      },
+      "timezone": "Asia/Shanghai",
+      "action": {
+        "type": "session",
+        "agentId": "main",
+        "task": "获取今日热点新闻，优先使用 Tavily 搜索 API，如果 Tavily 不可用则使用 web_fetch 从国内新闻网站（如澎湃新闻、今日头条、百度新闻等）获取新闻。整理成简洁的播报格式，包括：3-5 条热点新闻、简要说明、相关链接。通过 message 工具发送到 feishu 频道给老大（ou_b22256f49d4850b336b3244b7bdfd1ff）。使用 emoji 让内容更生动。播报结束后回复 HEARTBEAT_OK。",
+        "timeout": 90
+      },
+      "metadata": {
+        "created": "2026-03-08",
+        "creator": "personal-assistant",
+        "description": "每天早上 8 点发送热点新闻播报"
+      },
+      "state": {
+        "nextRunAtMs": 1773100800000
+      },
+      "wakeMode": "now",
+      "sessionTarget": "main"
+    }
+  ]
+}

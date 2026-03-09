@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.3.2",
+    "lastTouchedAt": "2026-03-08T16:47:34.527Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-03-08T16:47:34.409Z",
+    "lastRunVersion": "2026.3.2",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "bailian": {
+        "baseUrl": "https://coding.dashscope.aliyuncs.com/v1",
+        "apiKey": "sk-sp-5769a7d51de949478ff3c8616ead7e11",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "qwen3.5-plus",
+            "name": "qwen3.5-plus",
+            "api": "openai-completions",
+            "reasoning": false,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 1000000,
+            "maxTokens": 65536
+          },
+          {
+            "id": "qwen3-max-2026-01-23",
+            "name": "qwen3-max-2026-01-23",
+            "api": "openai-completions",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 262144,
+            "maxTokens": 65536
+          },
+          {
+            "id": "qwen3-coder-next",
+            "name": "qwen3-coder-next",
+            "api": "openai-completions",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 262144,
+            "maxTokens": 65536
+          },
+          {
+            "id": "qwen3-coder-plus",
+            "name": "qwen3-coder-plus",
+            "api": "openai-completions",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 1000000,
+            "maxTokens": 65536
+          },
+          {
+            "id": "glm-5",
+            "name": "glm-5",
+            "api": "openai-completions",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 202752,
+            "maxTokens": 16384
+          },
+          {
+            "id": "glm-4.7",
+            "name": "glm-4.7",
+            "api": "openai-completions",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 202752,
+            "maxTokens": 16384
+          },
+          {
+            "id": "kimi-k2.5",
+            "name": "kimi-k2.5",
+            "api": "openai-completions",
+            "reasoning": false,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 262144,
+            "maxTokens": 32768
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "bailian/glm-4.7"
+      },
+      "models": {
+        "bailian/qwen3.5-plus": {},
+        "bailian/qwen3-max-2026-01-23": {},
+        "bailian/qwen3-coder-next": {},
+        "bailian/qwen3-coder-plus": {},
+        "bailian/glm-5": {},
+        "bailian/glm-4.7": {},
+        "bailian/kimi-k2.5": {}
+      },
+      "workspace": "C:\\Users\\eblyb\\.openclaw\\workspace",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    },
+    "list": [
+      {
+        "id": "main",
+        "workspace": "C:\\Users\\eblyb\\.openclaw\\workspace",
+        "subagents": {}
+      },
+      {
+        "id": "designer",
+        "workspace": "C:\\Users\\eblyb\\.openclaw\\workspace-designer",
+        "subagents": {}
+      },
+      {
+        "id": "coder",
+        "workspace": "C:\\Users\\eblyb\\.openclaw\\workspace-coder",
+        "subagents": {}
+      },
+      {
+        "id": "test",
+        "workspace": "C:\\Users\\eblyb\\.openclaw\\workspace-test",
+        "subagents": {}
+      },
+      {
+        "id": "support",
+        "workspace": "C:\\Users\\eblyb\\.openclaw\\workspace-support",
+        "subagents": {}
+      }
+    ]
+  },
+  "tools": {
+    "sessions":{
+     "visibility":"all"    
+},
+"agentToAgent":{
+     "enabled":true,
+     "allow":["main","meimei","laozhang","lingzi","xiaoliu"]
+},
+    "profile": "full"
+  },
+  "bindings": [
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "feishu",
+        "accountId": "default"
+      }
+    },
+    {
+      "agentId": "designer",
+      "match": {
+        "channel": "feishu",
+        "accountId": "meimei"
+      }
+    },
+    {
+      "agentId": "coder",
+      "match": {
+        "channel": "feishu",
+        "accountId": "laozhang"
+      }
+    },
+    {
+      "agentId": "test",
+      "match": {
+        "channel": "feishu",
+        "accountId": "lingzi"
+      }
+    },
+    {
+      "agentId": "support",
+      "match": {
+        "channel": "feishu",
+        "accountId": "xiaoliu"
+      }
+    }
+  ],
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "channels": {
+    "feishu": {
+      "enabled": true,
+      "connectionMode": "websocket",
+      "domain": "feishu",
+      "groupPolicy": "open",
+      "requireMention": false,
+      "accounts": {
+        "default": {
+          "name": "老大的飞书",
+          "appId": "cli_a90e80fa4d3adcd5",
+          "appSecret": "aBlb2PiZxrBlRfP18v6cjblGPxWJIcGs"
+        },
+        "meimei": {
+          "name": "美美的飞书",
+          "appId": "cli_a9090e4f38f89ccb",
+          "appSecret": "u9GKCAQoS7tQArrLKkWPygfxj6ASyaeR"
+        },
+        "laozhang": {
+          "name": "老张的飞书",
+          "appId": "cli_a90d5902a8f81bc0",
+          "appSecret": "1S8gXwvY3L1aVUKV4FlAJ37LYr7vAM5p"
+        },
+        "lingzi": {
+          "name": "玲子的飞书",
+          "appId": "cli_a9270b6a8c78dccb",
+          "appSecret": "duHE1M4uv2XnVbHuINpbvfTY10fbTwHs"
+        },
+        "xiaoliu": {
+          "name": "小刘的飞书",
+          "appId": "cli_a9273af169f85cca",
+          "appSecret": "0W6Vchf5DR6RgmhKXAt0Lfy8ukGNlpB5"
+        }
+      },
+      "groupSessionScope": "group"
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "6c92ba3df957a06e0afaef6d459fcf9fc42ba280e7c8c18f"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    }
+  },
+  "plugins": {
+    "entries": {
+      "feishu": {
+        "enabled": true
+      }
+    },
+    "installs": {
+      "feishu": {
+        "source": "npm",
+        "spec": "@openclaw/feishu",
+        "installPath": "C:\\Users\\eblyb\\.openclaw\\extensions\\feishu",
+        "version": "2026.3.2",
+        "resolvedName": "@openclaw/feishu",
+        "resolvedVersion": "2026.3.2",
+        "resolvedSpec": "@openclaw/feishu@2026.3.2",
+        "integrity": "sha512-CpwjmLCS8gpZ5fFCRiEA+1i/L+E73Vhz5//TiwQjWJOtVPZEu44db294g3HUR6nB5L0IEpZgKU/JU69HgYl77w==",
+        "shasum": "ad77e27633b480f5c815e1922252a2f07c1765bd",
+        "resolvedAt": "2026-03-07T17:40:16.915Z",
+        "installedAt": "2026-03-07T17:40:20.030Z"
+      }
+    }
+  }
+}
